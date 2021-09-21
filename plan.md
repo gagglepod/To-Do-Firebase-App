@@ -1,0 +1,10 @@
+1. Create the boxes we need to create
+2. Crate the banner background image
+3. Create the header
+4. Create the input section
+5. Create the todoIteams list section
+6. Set up our database
+7. Create the ability to save data in a Firebase database
+8. Create the functionality to grab the data from the database
+9. Create the functionality to update the data with the new status of completed or active
+10. Create the functionality to filter the list
