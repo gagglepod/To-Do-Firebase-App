@@ -75,8 +75,14 @@ body {
   align-items: center;
 }
 
-.check-mark:hover {
+.check-mark:hover,
+.check-mark.checked {
   background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+}
+
+.todo-text.checked {
+  text-decoration: line-through;
+  color: hsl(233, 14%, 35%);
 }
 
 .new-todo-input {
