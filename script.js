@@ -93,6 +93,7 @@ function countItems() {
     });
     // console.log(count);
     showCount(count);
+    count = 0;
   });
 }
 
