@@ -2,7 +2,7 @@
 
 ## Buidling a TO DO LIST App with JavaScript, HTML, CSS, & Firebase
 
-[YouTube Video](https://youtu.be/KA_8eOIsjn4)
+[Clever Programmer - YouTube Video - Streamed live on Aug 21, 2021](https://youtu.be/KA_8eOIsjn4)
 
 ## Requirements
 
