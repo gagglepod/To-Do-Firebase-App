@@ -1,9 +1,7 @@
+// Add a new doc to Firestore To-Do collection
 function addItem(event) {
   event.preventDefault();
   let text = document.getElementById("todo-input");
-
-  // console.log(text.value);
-
   db.collection("todo-items").add({
     text: text.value,
     status: "active",
@@ -12,9 +10,10 @@ function addItem(event) {
   text.value = "";
 }
 
+// List all docs in Firestore To-Do collection
 function getItems() {
   db.collection("todo-items").onSnapshot((snapshot) => {
-    console.log(snapshot);
+    // console.log(snapshot);
     let items = [];
     snapshot.docs.forEach((doc) => {
       items.push({
@@ -26,22 +25,20 @@ function getItems() {
   });
 }
 
+// Control functionality between active and completed items
 function generateItems(items) {
   let itemsHTML = "";
-
   items.forEach((item) => {
-    // console.log(item);
-
     itemsHTML += `
       <div class="todo-item">
       <div class="check">
         <div data-id="${item.id}" class="check-mark ${
-      item.status == "complete" ? "checked" : ""
+      item.status == "completed" ? "checked" : ""
     }">
           <img src="./img/icon-check.svg" alt="Completed To Do" />
         </div>
       </div>
-      <div class="todo-text ${item.status == "complete" ? "checked" : ""}">
+      <div class="todo-text ${item.status == "completed" ? "checked" : ""}">
       ${item.text}
       </div>
       </div>
@@ -51,6 +48,7 @@ function generateItems(items) {
   createEventListeners();
 }
 
+// Listen for Click to change Check-Mark
 function createEventListeners() {
   let todoCheckMarks = document.querySelectorAll(".todo-item .check-mark");
   todoCheckMarks.forEach((checkMark) => {
@@ -61,6 +59,7 @@ function createEventListeners() {
   // console.log(todoCheckMarks);
 }
 
+// Update Status of a doc in Firebase To-Do collection
 function markCompleted(id) {
   // grab item in database
   let item = db.collection("todo-items").doc(id);
@@ -83,3 +82,29 @@ function markCompleted(id) {
 }
 
 getItems();
+
+// Count all docs in Firestore To-Do collection
+function countItems() {
+  let count = 0;
+
+  db.collection("todo-items").onSnapshot((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      count++;
+    });
+    // console.log(count);
+    showCount(count);
+  });
+}
+
+function showCount(count) {
+  // console.log(count);
+  let countHTML = "";
+  countHTML += `
+    <div class="items-left">
+      <span class="item-count">${count} items left</span>
+    </div>
+    `;
+  document.querySelector(".items-left").innerHTML = countHTML;
+}
+
+countItems();

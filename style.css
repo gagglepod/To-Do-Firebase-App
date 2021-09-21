@@ -75,9 +75,18 @@ body {
   align-items: center;
 }
 
+.check-mark img {
+  visibility: hidden;
+}
+
 .check-mark:hover,
 .check-mark.checked {
-  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+  background: hsl(148, 62%, 31%);
+}
+
+.check-mark:hover img,
+.check-mark.checked img {
+  visibility: visible;
 }
 
 .todo-text.checked {
@@ -139,6 +148,7 @@ body {
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
 }
 
 .todo-todo-items-info {
