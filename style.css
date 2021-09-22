@@ -181,3 +181,12 @@ body {
   cursor: pointer;
   text-align: end;
 }
+
+.items-clear span:hover,
+.items-clear span.active {
+  color: hsl(220, 98%, 61%);
+}
+
+.items-clear a:visited {
+  color: hsl(220, 98%, 61%);
+}
