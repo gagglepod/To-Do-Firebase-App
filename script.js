@@ -110,6 +110,7 @@ function showCount(count) {
 
 countItems();
 
+// Remove completed items from Firebase
 function deleteTodoByStatus() {
   let deleteCompleted = db
     .collection("todo-items")
@@ -118,7 +119,7 @@ function deleteTodoByStatus() {
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
+        // console.log(doc.id, " => ", doc.data());
 
         db.collection("todo-items").doc(doc.id).delete();
       });
